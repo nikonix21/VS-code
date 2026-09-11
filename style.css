@@ -288,3 +288,58 @@ body {
     50% { transform: scale(0.75) rotate(-180deg); border-radius: 20%; }
     100% { transform: scale(0.85) rotate(-360deg); border-radius: 40%; }
 }
+/* VISTA Y MARCO PARA ENCARGOS (IFRAME) */
+.selector-encargos {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.btn-tab {
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.btn-tab.activo, .btn-tab:hover {
+    background: #4da6ff;
+    border-color: #4da6ff;
+    color: #000;
+    font-weight: 600;
+}
+
+.titulo-encargo {
+    text-align: center;
+    font-size: 26px;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+/* Marco del Iframe */
+.marco-visor-iframe {
+    width: 100%;
+    height: 550px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+    background: #ffffff;
+}
+
+.marco-visor-iframe iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.contenedor-pantalla-completa {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}

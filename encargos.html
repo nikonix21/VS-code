@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encargos — Nicolás Bravo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="cuerpo-proyectos">
+
+    <!-- Fondo dinámico -->
+    <div class="fondo-dinamico">
+        <div class="forma rectangulo rojo vel-1"></div>
+        <div class="forma triangulo azul vel-2"></div>
+        <div class="forma rectangulo azul vel-3"></div>
+        <div class="forma triangulo rojo vel-1"></div>
+    </div>
+
+    <div class="pagina-contenedor-original">
+
+        <!-- Header Flotante -->
+        <header class="header-flotante">
+            <div class="logo-autor">N. Bravo</div>
+            <nav class="nav-links">
+                <a href="index.html">← Portada</a>
+                <a href="proyectos.html">Proyectos</a>
+                <a href="encargos.html" class="active">Encargos</a>
+            </nav>
+        </header>
+
+        <main class="seccion-encargos">
+            
+            <!-- Botones para alternar la vista entre Encargos -->
+            <div class="selector-encargos">
+                <a href="encargos.html" class="btn-tab activo">Encargo 2</a>
+                <a href="encargo3.html" class="btn-tab">Encargo 3</a>
+            </div>
+
+            <h1 class="titulo-encargo">Estilos y diagramación básica</h1>
+
+            <!-- VENTANA IFRAME -->
+            <div class="marco-visor-iframe">
+                <iframe src="https://itscami25.github.io/ejercicio-2-ddc-camila-mata/" title="Encargo 2 - Diagramación CSS"></iframe>
+            </div>
+
+            <div class="contenedor-pantalla-completa">
+                <a href="https://itscami25.github.io/ejercicio-2-ddc-camila-mata/" target="_blank" class="btn-explorar-todo">Abrir en pantalla completa ↗</a>
+            </div>
+
+            <!-- SECCIÓN CON EL CONTENIDO DIAGRAMADO DE LA FOTO -->
+            <section class="banner-encargo" style="margin-top: 60px;">
+                
+                <!-- Columna Izquierda: Presentación Principal -->
+                <div class="texto-encabezado">
+                    <span class="num-proyecto">DIRECCIÓN DE SERVICIOS ESTUDIANTILES</span>
+                    <h2 style="font-size: 32px; color: #fff; margin: 12px 0;">Servicios Estudiantiles</h2>
+                    <p style="font-size: 14px; color: #aaa; line-height: 1.6;">
+                        El trabajo <strong>colaborativo, sistemático y permanente en investigación y creación</strong>, realizado en la Universidad de Concepción, es una forma válida de alcanzar altos niveles de <strong>calidad y pertinencia</strong>.
+                    </p>
+                    <a href="https://wiki.ead.pucv.cl" target="_blank" class="wiki-link" style="margin-top: 15px;">Conocer más ↗</a>
+                </div>
+
+                <!-- Columna Derecha: Grilla de Tarjetas -->
+                <div class="grid-servicios" style="flex: 1.5;">
+                    
+                    <article class="tarjeta-servicio">
+                        <span class="etiqueta-categoria">■ Deportes</span>
+                        <h3>Actividades masivas y recreativas</h3>
+                    </article>
+
+                    <article class="tarjeta-servicio">
+                        <span class="etiqueta-categoria">■ Salud</span>
+                        <h3>Recepción de certificados médicos</h3>
+                    </article>
+
+                    <article class="tarjeta-servicio">
+                        <span class="etiqueta-categoria">■ Bienestar Estudiantil</span>
+                        <h3>Tarjeta Nacional Estudiantil</h3>
+                    </article>
+
+                    <article class="tarjeta-servicio">
+                        <span class="etiqueta-categoria">■ Actividades extraprogramáticas</span>
+                        <h3>Cursos Artísticos y Culturales de libre participación</h3>
+                    </article>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer-original" id="contacto">
+            <div>
+                <h3>Contacto</h3>
+                <p>WhatsApp: <a href="https://wa.me/56999943031" target="_blank">+56 9 99943031</a></p>
+                <p>Instagram: <a href="https://instagram.com/niko.sebastian._" target="_blank">@niko.sebastian._</a></p>
+            </div>
+            <div>
+                <p class="derechos">Nicolás Bravo — Taller de Diseño PUCV</p>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
