@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100c0b">
+  <meta name="description" content="Encargo 3 de Nicolás Bravo: análisis de scroll, arquitectura visual y responsividad en EGLO y DIALux, con wireframes creados en HTML y CSS.">
+  <title>El recorrido de la luz — Nicolás Bravo | Diseño desde el Código</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- Las luces son CSS: no hay videos, canvas ni imágenes de fondo. -->
+  <div class="ambient" aria-hidden="true">
+    <span class="ambient__glow ambient__glow--red"></span>
+    <span class="ambient__glow ambient__glow--orange"></span>
+    <span class="ambient__glow ambient__glow--amber"></span>
+    <span class="ambient__glow ambient__glow--deep"></span>
+    <span class="ambient__grain"></span>
+  </div>
+  <div class="progress" aria-hidden="true"><div id="reading-progress"></div></div>
+
+  <header class="header" id="inicio">
+    <div class="header__inner container">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio de El recorrido de la luz">
+        <span class="brand__mark"><span></span></span>
+        <span class="brand__text">N. BRAVO <small>/ BITÁCORA DIGITAL</small></span>
+      </a>
+      <button class="nav-trigger" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir navegación">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-nav" class="nav" aria-label="Navegación principal">
+        <a href="#metodo">Método</a>
+        <a href="#eglo">01 / EGLO</a>
+        <a href="#dialux">02 / DIALux</a>
+        <a href="#comparacion">Comparación</a>
+        <a href="#cierre">Cierre</a>
+      </nav>
+      <span class="header__edition">DDC — 2026</span>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero__eyebrow"><span class="live-dot"></span> ENCARGO 03 &nbsp;·&nbsp; DISEÑO DESDE EL CÓDIGO</div>
+      <div class="hero__grid">
+        <div class="hero__content">
+          <h1 id="hero-title">EL RECORRIDO<br>DE <em>LA LUZ<span class="hero__period">.</span></em></h1>
+          <p class="hero__lead">Una observación sobre lo que permanece, lo que se desplaza y lo que interrumpe nuestra mirada en una interfaz web.</p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#metodo">Explorar el análisis <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#comparacion">Ver conclusiones <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <aside class="hero__info" aria-label="Ficha del proyecto">
+          <div class="hero__info-header"><span>FICHA / 003</span><span class="asterisk" aria-hidden="true">✳</span></div>
+          <dl>
+            <div><dt>Autor</dt><dd>Nicolás Bravo</dd></div>
+            <div><dt>Asignatura</dt><dd>Diseño desde el Código</dd></div>
+            <div><dt>Investigación</dt><dd>EGLO Chile & DIALux</dd></div>
+            <div><dt>Enfoque</dt><dd>Scroll · Layout · Mobile · UX</dd></div>
+          </dl>
+          <div class="hero__info-foot">Observación de interfaces · Octubre 2026</div>
+        </aside>
+      </div>
+      <div class="hero__bottom"><span>UN ESTUDIO EN DOS SITIOS</span><span>DESLIZA PARA DESCUBRIR <span aria-hidden="true">↓</span></span></div>
+    </section>
+
+    <section class="method section container" id="metodo" aria-labelledby="method-title">
+      <div class="section-kicker"><span class="section-kicker__number">00</span> / PUNTO DE PARTIDA</div>
+      <div class="intro-grid">
+        <div>
+          <h2 class="display-title" id="method-title">La interfaz es <span>un recorrido.</span></h2>
+          <p class="intro-copy">Al navegar, la mirada se mueve entre menús, imágenes y bloques de información. Esta investigación compara cómo <strong>EGLO</strong> y <strong>DIALux</strong> organizan ese desplazamiento y cuánto control le entregan a quien visita sus sitios.</p>
+        </div>
+        <div class="method__sidebar">
+          <h3>Preguntas de observación</h3>
+          <ol class="question-list">
+            <li><span>01</span> ¿Qué se mueve y qué permanece fijo al hacer scroll?</li>
+            <li><span>02</span> ¿Cómo se distribuyen columnas y módulos?</li>
+            <li><span>03</span> ¿Qué ocurre cuando el ancho se vuelve móvil?</li>
+            <li><span>04</span> ¿Son apropiadas las decisiones? ¿Qué cambiaría?</li>
+          </ol>
+        </div>
+      </div>
+      <p class="note note--source"><span class="note__icon">i</span><span><strong>Alcance de la investigación.</strong> Los esquemas que aparecen más abajo son reconstrucciones analíticas originales, no capturas ni copias del código fuente. La evaluación de EGLO utiliza la captura del menú facilitada para el encargo y categorías públicas de su catálogo. El efecto del carrusel de DIALux se describe como una observación de navegación; no se verificó su implementación JS/CSS ni se midieron tiempos de carga. Las columnas se infieren visualmente y se propone cómo confirmarlas en DevTools.</span></p>
+    </section>
+
+    <!-- ESTUDIO 01 -->
+    <section class="study section container" id="eglo" aria-labelledby="eglo-title">
+      <div class="study__top">
+        <div><div class="section-kicker"><span class="section-kicker__number">01</span> / COMERCIO E ILUMINACIÓN</div>
+          <h2 class="display-title study__title" id="eglo-title">EGLO <span>Chile</span></h2>
+          <p class="study__subtitle">La navegación como despliegue de categorías.</p></div>
+        <a class="site-link" href="https://eglo.cl/" target="_blank" rel="noopener noreferrer">Visitar EGLO <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="study__body">
+        <article class="study__analysis">
+          <h3 class="mini-heading"><span class="mini-heading__light"></span> Lectura del sitio</h3>
+          <p>EGLO es un catálogo comercial de iluminación. Su barra superior reúne categorías como <strong>Interior, Exterior, Técnica e Inteligente</strong>; al interactuar con ellas se despliega un listado vertical de subcategorías. Esta segunda capa facilita encontrar familias de productos sin abandonar inmediatamente la portada.</p>
+          <div class="answer"><div class="answer__number">01</div><div><h4>Movimiento y permanencia</h4><p>El menú horizontal actúa como punto de entrada; el submenú se despliega <em>hacia abajo</em> mediante hover o selección. Es una interacción del menú, no necesariamente un efecto del scroll. Las fotografías y tarjetas pertenecen al flujo general y descienden cuando se recorre la página. La fijación real del encabezado requiere confirmación en DevTools.</p></div></div>
+          <div class="answer"><div class="answer__number">02</div><div><h4>Columnas y retícula</h4><p>La cabecera distribuye categorías en una fila; debajo se alternan un banner ancho y grillas de productos. Visualmente es compatible con <code>Flexbox</code> para la navegación y <code>CSS Grid</code> para las tarjetas; es una lectura de la composición, no la declaración CSS confirmada del sitio.</p></div></div>
+          <div class="answer"><div class="answer__number">03</div><div><h4>Reducción al formato móvil</h4><p>En una adaptación móvil coherente, las categorías horizontales necesitan concentrarse en un menú desplegable; los productos pasan de varias columnas a una o dos. Hay que probar si el submenú funciona por toque, no solo por hover.</p></div></div>
+          <div class="answer"><div class="answer__number">04</div><div><h4>Valoración y ajustes</h4><p>La categorización es útil, pero un menú con demasiados niveles puede aumentar la carga cognitiva. Propondría mostrar primero las categorías más buscadas, dejar activa la categoría abierta y facilitar navegación por teclado, toque y clic.</p></div></div>
+          <div class="study__verdict"><span>HALLAZGO PRINCIPAL</span><strong>El menú expande posibilidades, pero necesita jerarquía para no saturar.</strong></div>
+        </article>
+        <div class="wireframe-panel">
+          <div class="wireframe-panel__head"><div><span class="label-mono">DIAGRAMA 01</span><h3>Esqueleto de navegación</h3></div><span class="wireframe-panel__badge">HTML + CSS</span></div>
+          <div class="view-switch" role="group" aria-label="Vista del esquema EGLO">
+            <button type="button" class="view-switch__button is-active" data-view-switch="eglo" data-view="desktop" aria-pressed="true">Escritorio</button>
+            <button type="button" class="view-switch__button" data-view-switch="eglo" data-view="mobile" aria-pressed="false">Móvil</button>
+          </div>
+          <div class="wireframe-screen" id="eglo-frame">
+            <div class="wireframe-screen__chrome"><span class="window-dots"><i></i><i></i><i></i></span><span class="window-url">eglo.cl / estructura observada</span><span>↗</span></div>
+            <div class="wf wf--eglo" data-wireframe="eglo">
+              <div class="wf__top"><b class="wf__logo">EGLO</b><span class="wf__search"></span><span class="wf__menu-icon"><i></i><i></i><i></i></span></div>
+              <div class="wf-eglo__nav"><span>Interior</span><span>Exterior</span><span>Técnica</span><span class="wf-eglo__selected">Inteligente ⌄</span><span>Ampolletas</span></div>
+              <div class="wf-eglo__hero"><span class="wf-eglo__hero-kicker">PROMOCIÓN / AMBIENTE</span><span class="wf-bar wf-bar--lg"></span><span class="wf-bar wf-bar--md"></span><span class="wf-eglo__lamp" aria-hidden="true"></span></div>
+              <div class="wf-eglo__dropdown"><small>SUBCATEGORÍAS DESPLEGADAS</small><span>Lámparas de techo</span><span>Ampolletas inteligentes</span><span>Control y accesorios</span></div>
+              <div class="wf-eglo__title"><span class="wf-bar wf-bar--sm"></span><span class="wf-bar wf-bar--xs"></span></div>
+              <div class="wf-eglo__products"><div class="wf-product"><span></span><i></i><i></i></div><div class="wf-product"><span></span><i></i><i></i></div><div class="wf-product"><span></span><i></i><i></i></div></div>
+            </div>
+          </div>
+          <div class="wireframe-panel__footer"><span class="wireframe-legend"><i class="legend-swatch legend-swatch--accent"></i> Navegación</span><span class="wireframe-legend"><i class="legend-swatch legend-swatch--soft"></i> Contenido</span></div>
+          <p class="wireframe-caption" id="eglo-view-caption">Escritorio: menú horizontal, bloque promocional y grilla de productos.</p>
+          <p class="wireframe-footnote">Esquema conceptual: permite observar relaciones de tamaño y posición; no reproduce estilos ni medidas exactas de EGLO.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTUDIO 02 -->
+    <section class="study section container" id="dialux" aria-labelledby="dialux-title">
+      <div class="study__top"><div><div class="section-kicker"><span class="section-kicker__number">02</span> / SOFTWARE Y REPRESENTACIÓN</div><h2 class="display-title study__title" id="dialux-title">DIAL<span>ux</span></h2><p class="study__subtitle">Cuando el movimiento compite con el contenido.</p></div><a class="site-link" href="https://www.dialux.com/es-ES/dialux" target="_blank" rel="noopener noreferrer">Visitar DIALux <span aria-hidden="true">↗</span></a></div>
+      <div class="study__body">
+        <article class="study__analysis">
+          <h3 class="mini-heading"><span class="mini-heading__light"></span> Lectura del sitio</h3>
+          <p>DIALux presenta un software para proyectar iluminación. Su página reúne una introducción al programa, opciones de descarga, casos de uso —interior, exterior, vial y emergencia—, imágenes y módulos que explican funciones técnicas.</p>
+          <div class="answer"><div class="answer__number">01</div><div><h4>Movimiento y permanencia</h4><p>Al desplazarse aparecen nuevos bloques e imágenes. <strong>Durante el recorrido observado, la secuencia fotográfica se percibe condicionada al scroll</strong>: la atención queda ligada a continuar avanzando para ver otra imagen, sin controles directos suficientemente evidentes. No se ha confirmado si usa <code>position: sticky</code>, una animación vinculada al scroll u otra técnica.</p></div></div>
+          <div class="answer"><div class="answer__number">02</div><div><h4>Columnas y retícula</h4><p>El contenido alterna secciones de ancho completo con composiciones de texto e imagen. La retícula puede explicarse como módulos de dos columnas que se intercalan con banners visuales. El detalle de <code>display</code>, <code>grid-template-columns</code> y <code>position</code> debe verificarse en el inspector.</p></div></div>
+          <div class="answer"><div class="answer__number">03</div><div><h4>Reducción al formato móvil</h4><p>La composición debería apilar texto e imágenes, priorizar lectura vertical y evitar secuencias demasiado largas. En móvil, una galería subordinada exclusivamente al scroll puede aumentar la distancia recorrida con el dedo.</p></div></div>
+          <div class="answer"><div class="answer__number">04</div><div><h4>Valoración y ajustes</h4><p>Las imágenes ayudan a comprender el software, pero el carrusel resulta <strong>visualmente invasivo</strong> si el usuario no puede decidir qué ver ni cuándo. Añadiría botones anterior/siguiente, indicador de avance, opción para pausar y una alternativa de movimiento reducido.</p></div></div>
+          <div class="study__verdict study__verdict--dialux"><span>HALLAZGO PRINCIPAL</span><strong>La animación aporta atmósfera; sin control explícito, le resta autonomía al usuario.</strong></div>
+        </article>
+        <div class="wireframe-panel wireframe-panel--dialux">
+          <div class="wireframe-panel__head"><div><span class="label-mono">DIAGRAMA 02</span><h3>Esqueleto de contenido</h3></div><span class="wireframe-panel__badge">HTML + CSS</span></div>
+          <div class="view-switch" role="group" aria-label="Vista del esquema DIALux"><button type="button" class="view-switch__button is-active" data-view-switch="dialux" data-view="desktop" aria-pressed="true">Escritorio</button><button type="button" class="view-switch__button" data-view-switch="dialux" data-view="mobile" aria-pressed="false">Móvil</button></div>
+          <div class="wireframe-screen" id="dialux-frame">
+            <div class="wireframe-screen__chrome"><span class="window-dots"><i></i><i></i><i></i></span><span class="window-url">dialux.com / estructura interpretada</span><span>↗</span></div>
+            <div class="wf wf--dialux" data-wireframe="dialux">
+              <div class="wf__top wf__top--dialux"><b class="wf__logo">DIALux</b><span class="wf__search"></span><span class="wf__menu-icon"><i></i><i></i><i></i></span></div>
+              <div class="wf-dialux__hero"><div><small>DISEÑO DE ILUMINACIÓN</small><span class="wf-bar wf-bar--lg"></span><span class="wf-bar wf-bar--md"></span><span class="wf-pill"></span></div><div class="wf-dialux__hero-visual"><i></i><i></i><i></i></div></div>
+              <div class="wf-dialux__features"><div><span></span><i></i><i></i></div><div><span></span><i></i><i></i></div><div><span></span><i></i><i></i></div></div>
+              <div class="wf-dialux__sequence"><div class="wf-dialux__sequence-label">SECUENCIA FOTOGRÁFICA / SCROLL <span>↓</span></div><div class="wf-dialux__sequence-slides"><span>01</span><span>02</span><span>03</span></div><div class="wf-dialux__sequence-meta"><span></span><span></span></div></div>
+              <div class="wf-dialux__footer"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="wireframe-panel__footer"><span class="wireframe-legend"><i class="legend-swatch legend-swatch--accent"></i> Secuencia visual</span><span class="wireframe-legend"><i class="legend-swatch legend-swatch--soft"></i> Contenido</span></div>
+          <p class="wireframe-caption" id="dialux-view-caption">Escritorio: cabecera, presentación, módulos y secuencia visual.</p>
+          <p class="wireframe-footnote">Esquema conceptual: la secuencia resume la experiencia descrita; no implica que conozcamos el código del carrusel original.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compare container" id="comparacion" aria-labelledby="compare-title">
+      <div class="section-kicker"><span class="section-kicker__number">03</span> / CRUCE DE OBSERVACIONES</div>
+      <h2 class="display-title" id="compare-title">Dos formas de <span>guiar la mirada.</span></h2>
+      <p class="compare__intro">Ambos sitios recurren a recursos visuales vinculados con la iluminación, pero plantean modos distintos de recorrer la información. Esta comparación es cualitativa y no corresponde a una auditoría de rendimiento.</p>
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <caption class="sr-only">Comparación cualitativa entre EGLO y DIALux</caption>
+          <thead><tr><th scope="col">Criterio</th><th scope="col">EGLO Chile</th><th scope="col">DIALux</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Navegación</th><td>Categorías y subcategorías desplegables.</td><td>Secciones informativas y llamados a descargar.</td></tr>
+            <tr><th scope="row">Movimiento observado</th><td>Expansión de menús y desplazamiento habitual del catálogo.</td><td>Transiciones de imágenes asociadas a la experiencia de scroll descrita.</td></tr>
+            <tr><th scope="row">Organización</th><td>Barra horizontal, banner y grilla de productos.</td><td>Módulos de texto-imagen, secciones amplias y material visual.</td></tr>
+            <tr><th scope="row">Riesgo UX</th><td>Profundidad de categorías y dificultad táctil.</td><td>Movimiento difícil de controlar y fatiga visual.</td></tr>
+            <tr><th scope="row">Mejora propuesta</th><td>Menús simples, activación por clic y navegación accesible.</td><td>Galería manual, pausa, indicadores y respeto al movimiento reducido.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section tools container" aria-labelledby="tools-title">
+      <div class="section-kicker"><span class="section-kicker__number">04</span> / MÉTODO DE INSPECCIÓN</div>
+      <div class="tools__grid"><div><h2 class="display-title" id="tools-title">Abrir el <span>código de la mirada.</span></h2><p>Para pasar de la observación visual a una descripción técnica exacta, estas son las propiedades que deben comprobarse en las herramientas de desarrollador.</p></div><div class="tools__steps"><div><span class="tools__num">01</span><div><strong>Inspeccionar elemento</strong><p><kbd>F12</kbd> → <code>Elements</code> → <code>Computed</code>. Revisar <code>display</code>, <code>position</code>, <code>grid-template-columns</code> y <code>overflow</code>.</p></div></div><div><span class="tools__num">02</span><div><strong>Visualizar la retícula</strong><p>Activar los overlays de Grid/Flexbox para identificar columnas, separaciones y alineaciones del layout real.</p></div></div><div><span class="tools__num">03</span><div><strong>Probar en móvil</strong><p>Activar la emulación de dispositivo y probar 390 px y 768 px, interacción táctil, menús y posible desborde horizontal.</p></div></div><div><span class="tools__num">04</span><div><strong>Comprobar movimiento</strong><p>Verificar el carrusel con mouse, teclado y táctil; revisar si existen controles, pausa y alternativa para <code>prefers-reduced-motion</code>.</p></div></div></div></div>
+    </section>
+
+    <section class="closing container" id="cierre" aria-labelledby="close-title">
+      <div class="closing__orb" aria-hidden="true"></div>
+      <div class="section-kicker"><span class="section-kicker__number">05</span> / REFLEXIÓN FINAL</div>
+      <h2 id="close-title">Una interfaz no necesita moverse mucho.<br><em>Necesita moverse con sentido.</em></h2>
+      <div class="closing__bottom"><p>El movimiento permite revelar contenidos, pero también puede interrumpir la lectura. Mi criterio de diseño es que los desplazamientos acompañen la búsqueda de información y no obliguen al usuario a seguir un ritmo impuesto por la página.</p><span class="closing__signature">Nicolás Bravo<br><small>Diseño desde el Código 2026</small></span></div>
+    </section>
+
+    <section class="sources container" aria-labelledby="sources-title"><h2 id="sources-title">Sitios y referencias</h2><div class="sources__links"><a href="https://eglo.cl/" target="_blank" rel="noopener noreferrer">EGLO Chile ↗</a><a href="https://www.dialux.com/es-ES/dialux" target="_blank" rel="noopener noreferrer">DIALux ↗</a><a href="https://www.smashingmagazine.com/2022/04/designing-better-carousel-ux/" target="_blank" rel="noopener noreferrer">Buenas prácticas de carruseles ↗</a></div><p>Trabajo académico de análisis visual. Sin afiliación con EGLO o DIALux. Los diagramas son originales y esquemáticos.</p></section>
+  </main>
+  <footer class="footer container"><span>© 2026 · Nicolás Bravo</span><span>HECHO CON HTML / CSS / JAVASCRIPT</span><a href="#inicio">Volver al inicio ↑</a></footer>
+</body>
+</html>
